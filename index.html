@@ -200,18 +200,23 @@
     width: max-content;
   }
   @keyframes scroll-text {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
   }
-  .running-text-item {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 12px; color: rgba(255,255,255,0.75);
-    letter-spacing: 1px;
+  100% {
+    transform: translateX(-50%);
   }
-  .running-text-item .dot {
-    width: 4px; height: 4px; border-radius: 50%;
-    background: var(--gold); flex-shrink: 0;
-  }
+}
+
+.running-text-inner {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  animation: scroll-text 16s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+  will-change: transform;
+}
 
   /* ===================== HERO SECTION ===================== */
   #hero {
