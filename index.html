@@ -1340,6 +1340,92 @@
 
   /* Running text scrolled offset */
   body.scrolled .running-text { top: 60px; }
+
+/* ================= MOBILE FIX ================= */
+
+@media (max-width: 768px){
+
+  body{
+    overflow-x:hidden;
+  }
+
+  #navbar{
+    padding:14px 16px;
+  }
+
+  .nav-logo-text{
+    font-size:14px;
+  }
+
+  .nav-logo-text span{
+    font-size:9px;
+    letter-spacing:1px;
+  }
+
+  .running-text{
+    top:58px;
+  }
+
+  .running-text-item{
+    font-size:10px;
+  }
+
+  .hero-content{
+    padding:120px 20px 80px;
+  }
+
+  .hero-title{
+    font-size:56px;
+    line-height:1.05;
+  }
+
+  .hero-tagline{
+    letter-spacing:3px;
+    font-size:10px;
+    line-height:1.8;
+  }
+
+  .hero-desc{
+    font-size:14px;
+    line-height:1.9;
+    max-width:100%;
+  }
+
+  .hero-cta{
+    flex-direction:column;
+    width:100%;
+  }
+
+  .btn-primary,
+  .btn-outline{
+    width:100%;
+    text-align:center;
+  }
+
+  .weather-card{
+    max-width:100%;
+    margin:-30px 16px 0;
+    padding:16px;
+  }
+
+  .section-title{
+    font-size:34px;
+  }
+
+  .featured-news{
+    aspect-ratio:4/5;
+  }
+
+  .featured-news-title{
+    font-size:24px;
+  }
+
+  .gallery-grid{
+    gap:8px;
+  }
+
+}
+  
 </style>
 </head>
 <body>
