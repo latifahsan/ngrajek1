@@ -695,4 +695,1456 @@
   /* Add decorative SVG to card backgrounds */
   .bg-pertanian::after, .bg-alam::after, .bg-sejarah::after, .bg-kuliner::after, .bg-umkm::after {
     content: '';
+    position: absolute; inset: 0;
+    opacity: 0.15;
+  }
+
+  /* ===================== SEARCH ===================== */
+  #search-section {
+    padding: 60px 5%;
+    background: var(--cream);
+  }
+
+  .search-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 18px 56px 18px 24px;
+    background: var(--white);
+    border: 1px solid rgba(31,59,44,0.15);
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: var(--text-dark);
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  .search-input::placeholder { color: rgba(31,59,44,0.35); }
+  .search-input:focus {
+    border-color: var(--forest);
+    box-shadow: 0 0 0 4px rgba(31,59,44,0.06);
+  }
+
+  .search-btn {
+    position: absolute; right: 16px; top: 50%;
+    transform: translateY(-50%);
+    background: none; border: none; cursor: pointer;
+    color: var(--forest); font-size: 18px;
+    transition: color 0.3s;
+  }
+  .search-btn:hover { color: var(--gold); }
+
+  /* ===================== NEWS ===================== */
+  #berita {
+    padding: 120px 5%;
+    background: var(--cream);
+  }
+
+  .berita-header {
+    display: flex; align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    max-width: 1200px; margin-left: auto; margin-right: auto;
+    flex-wrap: wrap; gap: 20px;
+  }
+
+  .view-all {
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--forest); text-decoration: none; font-weight: 500;
+    display: flex; align-items: center; gap: 8px;
+    transition: gap 0.3s ease;
+  }
+  .view-all:hover { gap: 14px; color: var(--olive); }
+
+  /* Featured news */
+  .featured-news {
+    max-width: 1200px; margin: 0 auto 40px;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 21/9;
+    cursor: pointer;
+  }
+
+  .featured-news-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #1a3d28, #2d6b42, #3d4d2a);
+    transition: transform 0.6s ease;
+  }
+  .featured-news:hover .featured-news-bg { transform: scale(1.03); }
+
+  .featured-news-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(13,31,21,0.92) 0%, rgba(13,31,21,0.4) 60%, transparent 100%);
+  }
+
+  .featured-news-content {
+    position: absolute; left: 48px; top: 50%;
+    transform: translateY(-50%);
+    max-width: 500px;
+  }
+
+  .news-category {
+    display: inline-block;
+    padding: 4px 14px;
+    background: var(--gold);
+    border-radius: 2px;
+    font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--forest);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .news-date {
+    font-size: 11px; letter-spacing: 1px;
+    color: rgba(255,255,255,0.45); margin-bottom: 12px;
+  }
+
+  .featured-news-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 2.5vw, 34px);
+    color: var(--white); font-weight: 600;
+    line-height: 1.3; margin-bottom: 12px;
+  }
+
+  .featured-news-desc {
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    line-height: 1.7; font-weight: 300;
+  }
+
+  /* News grid */
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .news-card {
+    background: var(--white);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    border: 1px solid rgba(31,59,44,0.06);
+  }
+  .news-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(31,59,44,0.12);
+  }
+
+  .news-card-thumb {
+    aspect-ratio: 16/10;
+    overflow: hidden;
+  }
+  .news-card-thumb-inner {
+    width: 100%; height: 100%;
+    transition: transform 0.6s ease;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .news-card:hover .news-card-thumb-inner { transform: scale(1.08); }
+
+  .news-card-body { padding: 20px 22px 24px; }
+  .news-card-cat {
+    display: inline-block;
+    font-size: 9px; letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--olive-light);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .news-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; font-weight: 600;
+    color: var(--forest);
+    line-height: 1.4; margin-bottom: 10px;
+    transition: color 0.3s;
+  }
+  .news-card:hover .news-card-title { color: var(--earth); }
+  .news-card-excerpt {
+    font-size: 13px; color: var(--text-muted);
+    line-height: 1.7; font-weight: 300;
+  }
+  .news-card-meta {
+    display: flex; align-items: center; gap: 16px;
+    margin-top: 16px; padding-top: 16px;
+    border-top: 1px solid rgba(31,59,44,0.06);
+    font-size: 11px; color: rgba(107,79,58,0.6);
+  }
+
+  /* Different thumb colors for news cards */
+  .thumb-1 { background: linear-gradient(135deg, #1a3d28, #3d6b50); }
+  .thumb-2 { background: linear-gradient(135deg, #3d3014, #6b5a2a); }
+  .thumb-3 { background: linear-gradient(135deg, #3d2a1a, #6b4f3a); }
+  .thumb-4 { background: linear-gradient(135deg, #1a2d3d, #2a4d6b); }
+  .thumb-5 { background: linear-gradient(135deg, #1a3525, #3d6b45); }
+  .thumb-6 { background: linear-gradient(135deg, #2a1a3d, #4d3a6b); }
+
+  /* ===================== LANDSCAPE QUOTE ===================== */
+  #landscape {
+    position: relative;
+    padding: 160px 5%;
+    overflow: hidden;
+  }
+
+  .landscape-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, #0d1f15 0%, #1a3525 40%, #0d1f15 100%);
+  }
+
+  .landscape-overlay {
+    position: absolute; inset: 0;
+    background: rgba(13,31,21,0.7);
+  }
+
+  .landscape-content {
+    position: relative; z-index: 2;
+    text-align: center; max-width: 720px; margin: 0 auto;
+  }
+
+  .landscape-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3.5vw, 46px);
+    color: var(--cream);
+    font-style: italic;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  .landscape-quote::before, .landscape-quote::after {
+    content: '"';
+    color: var(--gold); font-size: 1.5em; line-height: 0;
+    vertical-align: middle; margin: 0 8px;
+  }
+
+  .landscape-author {
+    margin-top: 28px;
+    font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* ===================== GALLERY ===================== */
+  #galeri {
+    padding: 120px 5%;
+    background: var(--cream);
+  }
+
+  .gallery-header {
+    text-align: center; margin-bottom: 48px;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 12px;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .gallery-item {
+    overflow: hidden;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+  }
+  .gallery-item.span-2 { grid-column: span 2; }
+  .gallery-item.span-row { grid-row: span 2; }
+
+  .gallery-thumb {
+    width: 100%;
+    aspect-ratio: 1;
+    transition: transform 0.6s ease;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .gallery-item.span-2 .gallery-thumb { aspect-ratio: 2/1; }
+  .gallery-item.span-row .gallery-thumb { aspect-ratio: auto; height: 100%; }
+
+  .gallery-item:hover .gallery-thumb { transform: scale(1.06); }
+
+  .gallery-hover {
+    position: absolute; inset: 0;
+    background: rgba(31,59,44,0.7);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .gallery-item:hover .gallery-hover { opacity: 1; }
+  .gallery-hover-icon {
+    width: 48px; height: 48px;
+    border: 1.5px solid rgba(255,255,255,0.6);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 18px;
+  }
+
+  /* gallery colors */
+  .gc-1 { background: linear-gradient(135deg, #1a3d28, #2d6b42); }
+  .gc-2 { background: linear-gradient(135deg, #3d2a1a, #6b4f3a); }
+  .gc-3 { background: linear-gradient(135deg, #1a2d3d, #2a4d6b); }
+  .gc-4 { background: linear-gradient(135deg, #3d3014, #6b5a2a); }
+  .gc-5 { background: linear-gradient(135deg, #2a3d1a, #4d6b3a); }
+  .gc-6 { background: linear-gradient(135deg, #3d1a2d, #6b3a4d); }
+  .gc-7 { background: linear-gradient(135deg, #1a3d3d, #2a6b6b); }
+
+  /* ===================== LOCATION ===================== */
+  #lokasi {
+    padding: 120px 5%;
+    background: var(--cream-dark);
+  }
+
+  .lokasi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: start;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .lokasi-info {
+    padding-top: 16px;
+  }
+  .lokasi-info p {
+    font-size: 14px; color: var(--text-muted);
+    line-height: 1.8; font-weight: 300;
+    margin-top: 20px;
+  }
+
+  .lokasi-detail {
+    margin-top: 32px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .lokasi-item {
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .lokasi-icon {
+    width: 36px; height: 36px;
+    background: rgba(31,59,44,0.08);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .lokasi-item-text { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .lokasi-item-label { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--olive-light); font-weight: 600; margin-bottom: 2px; }
+
+  .map-container {
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: #e8e4dc;
+    border: 1px solid rgba(31,59,44,0.1);
+    position: relative;
+  }
+
+  .map-container iframe {
+    width: 100%; height: 100%; border: none;
+  }
+
+  .map-placeholder {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 12px;
+    background: linear-gradient(145deg, #d4cec2, #c8c2b4);
+  }
+  .map-pin { font-size: 40px; }
+  .map-text { font-size: 14px; color: rgba(31,59,44,0.5); }
+
+  .btn-maps {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 28px;
+    padding: 12px 24px;
+    background: var(--forest);
+    color: var(--cream);
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    text-decoration: none; border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+  .btn-maps:hover {
+    background: var(--olive);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(31,59,44,0.25);
+  }
+
+  /* ===================== FOOTER ===================== */
+  footer {
+    background: linear-gradient(180deg, #0d1f15, #050e0a);
+    padding: 80px 5% 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  footer::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 48px;
+    max-width: 1200px; margin: 0 auto 60px;
+  }
+
+  .footer-brand p {
+    font-size: 13px; color: rgba(255,255,255,0.4);
+    line-height: 1.8; font-weight: 300; margin-top: 16px;
+  }
+
+  .footer-socials {
+    display: flex; gap: 12px; margin-top: 24px;
+  }
+  .social-icon {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.4); font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .social-icon:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .footer-col h4 {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .footer-links { list-style: none; }
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+  .footer-links a {
+    font-size: 13px; color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--cream); }
+
+  .footer-bottom {
+    max-width: 1200px; margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .footer-bottom p {
+    font-size: 12px; color: rgba(255,255,255,0.2);
+  }
+
+  /* ===================== FLOATING ELEMENTS ===================== */
+  #back-to-top {
+    position: fixed; bottom: 32px; right: 32px; z-index: 500;
+    width: 44px; height: 44px;
+    background: var(--forest);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--cream); font-size: 16px;
+    cursor: pointer;
+    opacity: 0; visibility: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  #back-to-top.visible {
+    opacity: 1; visibility: visible;
+  }
+  #back-to-top:hover {
+    background: var(--olive);
+    transform: translateY(-4px);
+  }
+
+  .floating-socials {
+    position: fixed; left: 24px; top: 50%;
+    transform: translateY(-50%);
+    z-index: 500;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .float-social {
+    width: 32px; height: 32px;
+    background: rgba(31,59,44,0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.5); font-size: 13px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .float-social:hover {
+    background: var(--gold);
+    color: var(--forest);
+    border-color: var(--gold);
+    transform: translateX(4px);
+  }
+
+  /* Lightbox */
+  #lightbox {
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(5,14,10,0.95);
+    backdrop-filter: blur(20px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  #lightbox.open { opacity: 1; visibility: visible; }
+  .lightbox-close {
+    position: absolute; top: 24px; right: 24px;
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 3px;
+    color: white; font-size: 18px; cursor: pointer;
+    transition: all 0.3s;
+  }
+  .lightbox-close:hover { background: rgba(255,255,255,0.1); }
+  .lightbox-content {
+    max-width: 80vw; max-height: 80vh;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width: 1024px) {
+    .stats-grid { grid-template-columns: repeat(3, 1fr); }
+    .highlights-grid { grid-template-columns: repeat(2, 1fr); }
+    .potensi-grid { grid-template-columns: 1fr 1fr; }
+    .potensi-grid .card-large { grid-column: span 2; }
+    .news-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero-glass-card { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .highlights-grid { grid-template-columns: 1fr 1fr; }
+    .potensi-grid { grid-template-columns: 1fr; }
+    .potensi-grid .card-large { grid-column: span 1; }
+    .news-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item.span-2 { grid-column: span 2; }
+    .lokasi-grid { grid-template-columns: 1fr; }
+    .featured-news-content { left: 24px; right: 24px; }
+    .floating-socials { display: none; }
+    .hero-cta { gap: 12px; }
+    #about, #berita, #galeri, #lokasi, #potensi { padding: 80px 5%; }
+    #highlights { padding: 0 5% 80px; }
+    #stats { padding: 80px 5%; }
+    #landscape { padding: 100px 5%; }
+    .berita-header { flex-direction: column; align-items: flex-start; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .running-text { top: 60px; }
+  }
+
+  @media (max-width: 480px) {
+    .highlights-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-item.span-2 { grid-column: span 2; }
+    .gallery-item.span-row { grid-row: span 1; }
+    .featured-news { aspect-ratio: 3/2; }
+    .featured-news-overlay {
+      background: linear-gradient(to top, rgba(13,31,21,0.96) 0%, rgba(13,31,21,0.5) 60%, rgba(13,31,21,0.2) 100%);
+    }
+    .featured-news-content {
+      left: 20px; right: 20px;
+      top: auto; bottom: 24px;
+      transform: none;
+    }
+  }
+
+  /* Utilities */
+  .text-center { text-align: center; }
+  .max-w { max-width: 1200px; margin-left: auto; margin-right: auto; }
+
+  /* SVG Icons placeholder styles */
+  .icon-leaf::before { content: '🌿'; }
+  .icon-mountain::before { content: '⛰️'; }
+  .icon-book::before { content: '📜'; }
+  .icon-store::before { content: '🏪'; }
+  .icon-people::before { content: '👥'; }
+  .icon-land::before { content: '🗺️'; }
+  .icon-village::before { content: '🏘️'; }
+  .icon-harvest::before { content: '🌾'; }
+  .icon-umkm::before { content: '💼'; }
+
+  /* Decorative SVG backgrounds for potensi and hero */
+  .deco-svg {
+    position: absolute; inset: 0; opacity: 0.12;
+    pointer-events: none;
+  }
+
+  /* Weather mini */
+  #weather {
+    padding: 0 5% 0;
+    background: var(--cream);
+  }
+  .weather-card {
+    max-width: 320px;
+    background: var(--white);
+    border: 1px solid rgba(31,59,44,0.08);
+    border-radius: 4px;
+    padding: 16px 20px;
+    display: flex; align-items: center; gap: 16px;
+    margin: -40px auto 0;
+    position: relative; z-index: 20;
+    box-shadow: 0 8px 32px rgba(31,59,44,0.1);
+  }
+  .weather-icon { font-size: 32px; }
+  .weather-info { flex: 1; }
+  .weather-temp {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 700;
+    color: var(--forest);
+    line-height: 1;
+  }
+  .weather-desc { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .weather-loc { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--olive-light); margin-top: 4px; }
+
+  /* Gradient dividers */
+  .gradient-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(31,59,44,0.15), transparent);
+    margin: 0 5%;
+  }
+
+  /* Animated stars/particles in hero */
+  .hero-particle {
     position: absolute;
+    width: 2px; height: 2px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    animation: twinkle 3s ease infinite;
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.5); }
+  }
+
+  /* Running text scrolled offset */
+  body.scrolled .running-text { top: 60px; }
+</style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="preloader-logo">DS</div>
+  <div class="preloader-text">Memuat Desa...</div>
+  <div class="preloader-bar">
+    <div class="preloader-fill"></div>
+  </div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <div class="nav-logo-icon">DS</div>
+    <div class="nav-logo-text">
+      Desa Sukamaju
+      <span>Kec. Cikaret · Jawa Barat</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#hero" class="active">Home</a></li>
+    <li><a href="#about">Tentang</a></li>
+    <li><a href="#potensi">Potensi</a></li>
+    <li><a href="#berita">Berita</a></li>
+    <li><a href="#galeri">Galeri</a></li>
+    <li><a href="#lokasi">Lokasi</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#hero" class="nav-link-mobile">Home</a>
+  <a href="#about" class="nav-link-mobile">Tentang</a>
+  <a href="#potensi" class="nav-link-mobile">Potensi</a>
+  <a href="#berita" class="nav-link-mobile">Berita</a>
+  <a href="#galeri" class="nav-link-mobile">Galeri</a>
+  <a href="#lokasi" class="nav-link-mobile">Lokasi</a>
+</div>
+
+<!-- RUNNING TEXT -->
+<div class="running-text">
+  <div class="running-text-inner" id="running-text-inner">
+    <div class="running-text-item"><span class="dot"></span>🔊 Selamat datang di website resmi Desa Sukamaju</div>
+    <div class="running-text-item"><span class="dot"></span>🌾 Panen raya akan dilaksanakan minggu depan — mari bersama merayakannya</div>
+    <div class="running-text-item"><span class="dot"></span>🌿 Mari menjaga kebersihan dan keindahan desa kita bersama</div>
+    <div class="running-text-item"><span class="dot"></span>📋 Musyawarah desa akan diadakan pada hari Jumat, pukul 19.00 WIB</div>
+    <div class="running-text-item"><span class="dot"></span>🎉 Festival Panen Desa Sukamaju 2025 — segera hadir!</div>
+    <!-- duplicate for seamless scroll -->
+    <div class="running-text-item"><span class="dot"></span>🔊 Selamat datang di website resmi Desa Sukamaju</div>
+    <div class="running-text-item"><span class="dot"></span>🌾 Panen raya akan dilaksanakan minggu depan — mari bersama merayakannya</div>
+    <div class="running-text-item"><span class="dot"></span>🌿 Mari menjaga kebersihan dan keindahan desa kita bersama</div>
+    <div class="running-text-item"><span class="dot"></span>📋 Musyawarah desa akan diadakan pada hari Jumat, pukul 19.00 WIB</div>
+    <div class="running-text-item"><span class="dot"></span>🎉 Festival Panen Desa Sukamaju 2025 — segera hadir!</div>
+  </div>
+</div>
+
+<!-- HERO SECTION -->
+<section id="hero">
+  <div class="hero-bg"></div>
+
+  <!-- Decorative SVG rice fields -->
+  <svg class="rice-field-svg" viewBox="0 0 1440 400" preserveAspectRatio="none" style="position:absolute;bottom:0;opacity:0.15;">
+    <path d="M0,400 L0,200 Q60,150 120,200 Q180,250 240,180 Q300,110 360,180 Q420,250 480,160 Q540,70 600,160 Q660,250 720,170 Q780,90 840,170 Q900,250 960,160 Q1020,70 1080,160 Q1140,250 1200,170 Q1260,90 1320,160 Q1380,230 1440,150 L1440,400 Z" fill="#4A5E3A"/>
+    <path d="M0,400 L0,280 Q80,230 160,280 Q240,330 320,240 Q400,150 480,240 Q560,330 640,240 Q720,150 800,240 Q880,330 960,240 Q1040,150 1120,240 Q1200,330 1280,250 Q1360,170 1440,240 L1440,400 Z" fill="#1F3B2C" opacity="0.8"/>
+  </svg>
+
+  <!-- Particles -->
+  <script>
+    // Generate particles via JS after body parses
+  </script>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-greeting" id="hero-greeting">Selamat Datang</div>
+    <h1 class="hero-title">Desa <em>Sukamaju</em></h1>
+    <p class="hero-tagline">Tanah Subur · Jiwa Merdeka · Bersama Maju</p>
+    <p class="hero-desc">Sebuah desa dengan kekayaan alam yang melimpah, sejarah yang membanggakan, dan masyarakat yang bersatu dalam kehidupan harmonis di tanah Jawa Barat.</p>
+    <div class="hero-cta">
+      <a href="#about" class="btn-primary">Jelajahi Desa</a>
+      <a href="#berita" class="btn-outline">Baca Berita</a>
+    </div>
+  </div>
+
+  <!-- Glass Info Card -->
+  <div class="hero-glass-card">
+    <div class="glass-info-item">
+      <div class="glass-info-label">Penduduk</div>
+      <div class="glass-info-value">4.782</div>
+      <div class="glass-info-sub">jiwa</div>
+    </div>
+    <div class="glass-divider"></div>
+    <div class="glass-info-item">
+      <div class="glass-info-label">Cuaca</div>
+      <div class="glass-info-value">28°</div>
+      <div class="glass-info-sub">Cerah Berawan</div>
+    </div>
+    <div class="glass-divider"></div>
+    <div class="glass-info-item">
+      <div class="glass-info-label">Berdiri</div>
+      <div class="glass-info-value">1923</div>
+      <div class="glass-info-sub">102 tahun lalu</div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- WEATHER -->
+<div id="weather">
+  <div class="weather-card" data-aos="fade-up" data-aos-delay="100">
+    <div class="weather-icon">⛅</div>
+    <div class="weather-info">
+      <div class="weather-temp">28°C</div>
+      <div class="weather-desc">Cerah Berawan</div>
+      <div class="weather-loc">Desa Sukamaju · Hari ini</div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-size:11px;color:var(--text-muted);">Kelembaban</div>
+      <div style="font-size:16px;font-weight:600;color:var(--forest);">72%</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">Angin 12 km/h</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT SECTION -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text" data-aos="fade-right" data-aos-duration="900">
+      <div class="section-label">Tentang Kami</div>
+      <h2 class="section-title">Desa dengan <em>Jiwa</em><br>yang Kaya</h2>
+      <p>Desa Sukamaju berdiri sejak tahun 1923 di lembah subur Jawa Barat. Dikelilingi hamparan sawah hijau dan perbukitan yang asri, desa ini menyimpan warisan budaya dan kearifan lokal yang tak ternilai.</p>
+      <p>Masyarakat kami hidup dalam semangat gotong royong, menjaga alam dengan penuh rasa syukur. Pertanian menjadi tulang punggung kehidupan, diwariskan dari generasi ke generasi dengan penuh kebanggaan.</p>
+      <p>Dengan lebih dari satu abad berdiri, Desa Sukamaju terus berkembang — menjaga akar tradisi sambil merangkul kemajuan untuk masa depan yang lebih cerah.</p>
+    </div>
+    <div class="about-image-wrap" data-aos="fade-left" data-aos-duration="900">
+      <div class="about-image-main">
+        <svg width="200" height="200" viewBox="0 0 200 200" fill="none" opacity="0.5">
+          <path d="M100 20 L180 60 L180 140 L100 180 L20 140 L20 60 Z" stroke="rgba(201,168,76,0.4)" stroke-width="1" fill="none"/>
+          <circle cx="100" cy="100" r="40" stroke="rgba(201,168,76,0.3)" stroke-width="1" fill="none"/>
+          <path d="M100 60 L100 140 M60 100 L140 100" stroke="rgba(201,168,76,0.2)" stroke-width="1"/>
+          <text x="100" y="106" text-anchor="middle" font-family="Cinzel" font-size="14" fill="rgba(201,168,76,0.5)">DS</text>
+        </svg>
+        <div class="deco-svg">
+          <svg viewBox="0 0 400 500" style="width:100%;height:100%">
+            <path d="M0,500 Q100,400 200,450 Q300,500 400,400 L400,500 Z" fill="#4A5E3A" opacity="0.3"/>
+            <circle cx="200" cy="200" r="150" stroke="#4A5E3A" stroke-width="0.5" fill="none"/>
+            <path d="M50,250 Q200,100 350,250" stroke="#C9A84C" stroke-width="0.5" fill="none"/>
+          </svg>
+        </div>
+      </div>
+      <div class="about-image-float">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" opacity="0.6">
+          <path d="M40 10 Q60 20 65 40 Q70 60 50 65 Q30 70 20 55 Q10 40 20 25 Z" fill="rgba(245,241,232,0.2)"/>
+          <text x="40" y="46" text-anchor="middle" font-size="24">🌾</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gradient-divider"></div>
+
+<!-- HIGHLIGHTS -->
+<section id="highlights">
+  <div class="highlights-grid max-w">
+    <div class="highlight-card" data-aos="fade-up" data-aos-delay="0">
+      <div class="highlight-icon">🌾</div>
+      <div class="highlight-title">Desa Pertanian</div>
+      <div class="highlight-desc">Hamparan sawah hijau subur menjadi identitas utama desa. Kami penghasil beras berkualitas unggulan Jawa Barat.</div>
+    </div>
+    <div class="highlight-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="highlight-icon">🌿</div>
+      <div class="highlight-title">Alam Asri</div>
+      <div class="highlight-desc">Udara segar, perbukitan hijau, dan sungai jernih menjadi kekayaan alam yang selalu kami jaga kelestariannya.</div>
+    </div>
+    <div class="highlight-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="highlight-icon">📜</div>
+      <div class="highlight-title">Sejarah Lokal</div>
+      <div class="highlight-desc">Berdiri sejak 1923, desa kami menyimpan warisan sejarah dan kearifan lokal yang kaya dan membanggakan.</div>
+    </div>
+    <div class="highlight-card" data-aos="fade-up" data-aos-delay="300">
+      <div class="highlight-icon">💼</div>
+      <div class="highlight-title">UMKM Berkembang</div>
+      <div class="highlight-desc">Lebih dari 47 unit UMKM aktif menggerakkan ekonomi desa — dari produk pertanian hingga kerajinan tangan lokal.</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-header" data-aos="fade-up">
+    <div class="section-label">Data Desa</div>
+    <h2 class="section-title">Desa dalam <em>Angka</em></h2>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="0">
+      <div class="stat-icon">👥</div>
+      <div class="stat-number" data-target="4782">0</div>
+      <div class="stat-label">Jiwa Penduduk</div>
+    </div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="80">
+      <div class="stat-icon">🗺️</div>
+      <div class="stat-number" data-target="847" data-suffix=" ha">0</div>
+      <div class="stat-label">Luas Wilayah</div>
+    </div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="160">
+      <div class="stat-icon">🏘️</div>
+      <div class="stat-number" data-target="5">0</div>
+      <div class="stat-label">Jumlah Dusun</div>
+    </div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="240">
+      <div class="stat-icon">🌾</div>
+      <div class="stat-number" data-target="1200" data-suffix=" ton">0</div>
+      <div class="stat-label">Hasil Pertanian / Tahun</div>
+    </div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="320">
+      <div class="stat-icon">💼</div>
+      <div class="stat-number" data-target="47">0</div>
+      <div class="stat-label">Unit UMKM Aktif</div>
+    </div>
+  </div>
+</section>
+
+<!-- POTENSI DESA -->
+<section id="potensi">
+  <div class="potensi-header" data-aos="fade-up">
+    <div class="section-label" style="justify-content:center;"><span></span>Potensi Desa<span></span></div>
+    <h2 class="section-title">Kekayaan yang <em>Kami Miliki</em></h2>
+  </div>
+  <div class="potensi-grid max-w">
+    <div class="potensi-card card-large" data-aos="fade-up" data-aos-delay="0">
+      <div class="potensi-bg bg-pertanian">
+        <svg class="deco-svg" viewBox="0 0 600 340" style="opacity:0.2;">
+          <path d="M0,340 Q150,200 300,280 Q450,360 600,220 L600,340 Z" fill="#4A5E3A"/>
+          <circle cx="500" cy="80" r="60" stroke="rgba(201,168,76,0.3)" fill="none" stroke-width="1"/>
+          <path d="M100,100 Q200,50 300,100 Q400,150 500,100" stroke="rgba(201,168,76,0.2)" stroke-width="1" fill="none"/>
+        </svg>
+      </div>
+      <div class="potensi-overlay"></div>
+      <div class="potensi-content">
+        <div class="potensi-badge">Agrikultur</div>
+        <h3 class="potensi-title">Pertanian Padi & Palawija</h3>
+        <p class="potensi-desc">Hamparan sawah seluas 450 ha menjadi sumber kehidupan utama warga desa dengan dua kali panen per tahun.</p>
+      </div>
+      <div style="position:absolute;top:24px;right:24px;font-size:48px;opacity:0.15;">🌾</div>
+    </div>
+    <div class="potensi-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="potensi-bg bg-alam">
+        <svg class="deco-svg" viewBox="0 0 300 300" style="opacity:0.2;">
+          <circle cx="150" cy="150" r="100" stroke="rgba(201,168,76,0.3)" fill="none"/>
+          <path d="M0,300 Q75,200 150,250 Q225,300 300,200 L300,300 Z" fill="#4A5E3A"/>
+        </svg>
+      </div>
+      <div class="potensi-overlay"></div>
+      <div class="potensi-content">
+        <div class="potensi-badge">Ekowisata</div>
+        <h3 class="potensi-title">Keindahan Alam Desa</h3>
+        <p class="potensi-desc">Perbukitan, sungai, dan udara sejuk menjadi daya tarik wisata alam yang terus berkembang.</p>
+      </div>
+      <div style="position:absolute;top:24px;right:24px;font-size:48px;opacity:0.15;">⛰️</div>
+    </div>
+    <div class="potensi-card" data-aos="fade-up" data-aos-delay="50">
+      <div class="potensi-bg bg-sejarah">
+        <svg class="deco-svg" viewBox="0 0 300 300" style="opacity:0.2;">
+          <rect x="50" y="50" width="200" height="200" stroke="rgba(201,168,76,0.3)" fill="none" stroke-dasharray="5,5"/>
+          <circle cx="150" cy="150" r="50" stroke="rgba(201,168,76,0.2)" fill="none"/>
+        </svg>
+      </div>
+      <div class="potensi-overlay"></div>
+      <div class="potensi-content">
+        <div class="potensi-badge">Heritage</div>
+        <h3 class="potensi-title">Sejarah & Budaya Lokal</h3>
+        <p class="potensi-desc">Situs bersejarah dan tradisi leluhur yang terus hidup dan dilestarikan.</p>
+      </div>
+      <div style="position:absolute;top:24px;right:24px;font-size:48px;opacity:0.15;">📜</div>
+    </div>
+    <div class="potensi-card" data-aos="fade-up" data-aos-delay="150">
+      <div class="potensi-bg bg-kuliner">
+        <svg class="deco-svg" viewBox="0 0 300 300" style="opacity:0.2;">
+          <path d="M150,30 L280,230 L20,230 Z" stroke="rgba(201,168,76,0.3)" fill="none"/>
+        </svg>
+      </div>
+      <div class="potensi-overlay"></div>
+      <div class="potensi-content">
+        <div class="potensi-badge">Kuliner</div>
+        <h3 class="potensi-title">Kuliner Khas Desa</h3>
+        <p class="potensi-desc">Cita rasa otentik kuliner lokal yang diwariskan turun-temurun.</p>
+      </div>
+      <div style="position:absolute;top:24px;right:24px;font-size:48px;opacity:0.15;">🍚</div>
+    </div>
+    <div class="potensi-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="potensi-bg bg-umkm">
+        <svg class="deco-svg" viewBox="0 0 300 300" style="opacity:0.2;">
+          <circle cx="150" cy="150" r="80" stroke="rgba(201,168,76,0.2)" fill="none"/>
+          <circle cx="150" cy="150" r="40" stroke="rgba(201,168,76,0.3)" fill="none"/>
+        </svg>
+      </div>
+      <div class="potensi-overlay"></div>
+      <div class="potensi-content">
+        <div class="potensi-badge">Ekonomi</div>
+        <h3 class="potensi-title">UMKM Lokal</h3>
+        <p class="potensi-desc">Usaha kecil menengah yang terus berkembang dan menggerakkan ekonomi warga.</p>
+      </div>
+      <div style="position:absolute;top:24px;right:24px;font-size:48px;opacity:0.15;">💼</div>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<section id="search-section">
+  <div class="search-wrap" data-aos="fade-up">
+    <input class="search-input" type="text" placeholder="Cari berita atau artikel desa...">
+    <button class="search-btn">🔍</button>
+  </div>
+</section>
+
+<!-- BERITA -->
+<section id="berita">
+  <div class="berita-header">
+    <div>
+      <div class="section-label">Informasi Terkini</div>
+      <h2 class="section-title">Berita & <em>Artikel</em></h2>
+    </div>
+    <a href="#" class="view-all">Semua Berita →</a>
+  </div>
+
+  <!-- Featured News -->
+  <div class="featured-news" data-aos="fade-up">
+    <div class="featured-news-bg gc-1">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;padding:40px;opacity:0.08;font-size:200px;">🌾</div>
+    </div>
+    <div class="featured-news-overlay"></div>
+    <div class="featured-news-content">
+      <span class="news-category">Pertanian</span>
+      <p class="news-date">📅 12 Mei 2025</p>
+      <h2 class="featured-news-title">Panen Raya 2025: Hasil Rekor Sepanjang Sejarah Desa Sukamaju</h2>
+      <p class="featured-news-desc">Tahun ini, Desa Sukamaju mencatat rekor panen padi terbesar sepanjang sejarah dengan total hasil 1.200 ton — melampaui target yang ditetapkan Dinas Pertanian Kabupaten.</p>
+    </div>
+  </div>
+
+  <!-- News Grid -->
+  <div class="news-grid max-w">
+    <div class="news-card" data-aos="fade-up" data-aos-delay="0">
+      <div class="news-card-thumb"><div class="news-card-thumb-inner thumb-1"><span style="font-size:60px;opacity:0.3;">👥</span></div></div>
+      <div class="news-card-body">
+        <span class="news-card-cat">Kegiatan Warga</span>
+        <h3 class="news-card-title">Kerja Bakti Massal Sambut Hari Kemerdekaan</h3>
+        <p class="news-card-excerpt">Ratusan warga bergotong royong membersihkan lingkungan desa dalam rangka menyambut hari kemerdekaan Indonesia...</p>
+        <div class="news-card-meta">
+          <span>📅 8 Mei 2025</span>
+          <span>⏱ 3 menit baca</span>
+        </div>
+      </div>
+    </div>
+    <div class="news-card" data-aos="fade-up" data-aos-delay="80">
+      <div class="news-card-thumb"><div class="news-card-thumb-inner thumb-2"><span style="font-size:60px;opacity:0.3;">🏗️</span></div></div>
+      <div class="news-card-body">
+        <span class="news-card-cat">Pembangunan</span>
+        <h3 class="news-card-title">Jalan Desa Sepanjang 2 km Resmi Diaspal</h3>
+        <p class="news-card-excerpt">Proyek pembangunan jalan desa yang telah lama dinantikan akhirnya rampung dan siap digunakan oleh seluruh warga...</p>
+        <div class="news-card-meta">
+          <span>📅 5 Mei 2025</span>
+          <span>⏱ 2 menit baca</span>
+        </div>
+      </div>
+    </div>
+    <div class="news-card" data-aos="fade-up" data-aos-delay="160">
+      <div class="news-card-thumb"><div class="news-card-thumb-inner thumb-3"><span style="font-size:60px;opacity:0.3;">📜</span></div></div>
+      <div class="news-card-body">
+        <span class="news-card-cat">Sejarah & Budaya</span>
+        <h3 class="news-card-title">Mengenal Tradisi Seren Taun yang Masih Hidup</h3>
+        <p class="news-card-excerpt">Tradisi syukuran panen Seren Taun masih dirayakan setiap tahun sebagai bentuk rasa syukur dan pelestarian budaya...</p>
+        <div class="news-card-meta">
+          <span>📅 2 Mei 2025</span>
+          <span>⏱ 4 menit baca</span>
+        </div>
+      </div>
+    </div>
+    <div class="news-card" data-aos="fade-up" data-aos-delay="0">
+      <div class="news-card-thumb"><div class="news-card-thumb-inner thumb-4"><span style="font-size:60px;opacity:0.3;">🎉</span></div></div>
+      <div class="news-card-body">
+        <span class="news-card-cat">Festival</span>
+        <h3 class="news-card-title">Festival Kuliner Desa Sukamaju Kembali Hadir</h3>
+        <p class="news-card-excerpt">Festival kuliner tahunan desa akan hadir kembali dengan menampilkan lebih dari 30 stand makanan khas lokal...</p>
+        <div class="news-card-meta">
+          <span>📅 28 Apr 2025</span>
+          <span>⏱ 2 menit baca</span>
+        </div>
+      </div>
+    </div>
+    <div class="news-card" data-aos="fade-up" data-aos-delay="80">
+      <div class="news-card-thumb"><div class="news-card-thumb-inner thumb-5"><span style="font-size:60px;opacity:0.3;">💧</span></div></div>
+      <div class="news-card-body">
+        <span class="news-card-cat">Lingkungan</span>
+        <h3 class="news-card-title">Program Irigasi Cerdas Tingkatkan Efisiensi Pertanian</h3>
+        <p class="news-card-excerpt">Sistem irigasi berbasis teknologi sederhana berhasil mengurangi pemborosan air hingga 30% di lahan pertanian desa...</p>
+        <div class="news-card-meta">
+          <span>📅 25 Apr 2025</span>
+          <span>⏱ 3 menit baca</span>
+        </div>
+      </div>
+    </div>
+    <div class="news-card" data-aos="fade-up" data-aos-delay="160">
+      <div class="news-card-thumb"><div class="news-card-thumb-inner thumb-6"><span style="font-size:60px;opacity:0.3;">🌄</span></div></div>
+      <div class="news-card-body">
+        <span class="news-card-cat">Wisata</span>
+        <h3 class="news-card-title">Spot Sunrise di Bukit Cikaret Viral di Media Sosial</h3>
+        <p class="news-card-excerpt">Pemandangan sunrise dari Bukit Cikaret mendadak viral dan menjadi destinasi favorit wisatawan lokal dan mancanegara...</p>
+        <div class="news-card-meta">
+          <span>📅 20 Apr 2025</span>
+          <span>⏱ 3 menit baca</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANDSCAPE QUOTE -->
+<section id="landscape">
+  <div class="landscape-bg">
+    <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.1;" viewBox="0 0 1440 600" preserveAspectRatio="none">
+      <path d="M0,600 Q180,400 360,500 Q540,600 720,400 Q900,200 1080,400 Q1260,600 1440,350 L1440,600 Z" fill="#4A5E3A"/>
+      <path d="M0,600 Q240,450 480,520 Q720,590 960,450 Q1200,310 1440,450 L1440,600 Z" fill="#1F3B2C" opacity="0.7"/>
+      <circle cx="720" cy="200" r="300" stroke="rgba(201,168,76,0.1)" fill="none"/>
+      <circle cx="720" cy="200" r="200" stroke="rgba(201,168,76,0.08)" fill="none"/>
+      <circle cx="720" cy="200" r="100" stroke="rgba(201,168,76,0.06)" fill="none"/>
+    </svg>
+  </div>
+  <div class="landscape-overlay"></div>
+  <div class="landscape-content" data-aos="fade-up">
+    <blockquote class="landscape-quote">
+      Keindahan alam dan kebersamaan warga menjadi kekuatan desa kami yang tak tergoyahkan
+    </blockquote>
+    <p class="landscape-author">— Warga Desa Sukamaju</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="galeri">
+  <div class="gallery-header" data-aos="fade-up">
+    <div class="section-label" style="justify-content:center;">Galeri Desa</div>
+    <h2 class="section-title">Keindahan dalam <em>Bingkai</em></h2>
+  </div>
+  <div class="gallery-grid max-w">
+    <div class="gallery-item span-2" data-aos="fade-up" data-aos-delay="0" onclick="openLightbox(this)">
+      <div class="gallery-thumb gc-1" style="aspect-ratio:2/1;">
+        <span style="font-size:80px;opacity:0.2;position:absolute;">🌾</span>
+        <div class="gallery-hover"><div class="gallery-hover-icon">+</div></div>
+      </div>
+    </div>
+    <div class="gallery-item" data-aos="fade-up" data-aos-delay="50" onclick="openLightbox(this)">
+      <div class="gallery-thumb gc-2">
+        <span style="font-size:60px;opacity:0.2;position:absolute;">⛰️</span>
+        <div class="gallery-hover"><div class="gallery-hover-icon">+</div></div>
+      </div>
+    </div>
+    <div class="gallery-item" data-aos="fade-up" data-aos-delay="100" onclick="openLightbox(this)">
+      <div class="gallery-thumb gc-3">
+        <span style="font-size:60px;opacity:0.2;position:absolute;">🌅</span>
+        <div class="gallery-hover"><div class="gallery-hover-icon">+</div></div>
+      </div>
+    </div>
+    <div class="gallery-item" data-aos="fade-up" data-aos-delay="80" onclick="openLightbox(this)">
+      <div class="gallery-thumb gc-4">
+        <span style="font-size:60px;opacity:0.2;position:absolute;">🌿</span>
+        <div class="gallery-hover"><div class="gallery-hover-icon">+</div></div>
+      </div>
+    </div>
+    <div class="gallery-item" data-aos="fade-up" data-aos-delay="120" onclick="openLightbox(this)">
+      <div class="gallery-thumb gc-5">
+        <span style="font-size:60px;opacity:0.2;position:absolute;">👥</span>
+        <div class="gallery-hover"><div class="gallery-hover-icon">+</div></div>
+      </div>
+    </div>
+    <div class="gallery-item" data-aos="fade-up" data-aos-delay="160" onclick="openLightbox(this)">
+      <div class="gallery-thumb gc-6">
+        <span style="font-size:60px;opacity:0.2;position:absolute;">🌾</span>
+        <div class="gallery-hover"><div class="gallery-hover-icon">+</div></div>
+      </div>
+    </div>
+    <div class="gallery-item" data-aos="fade-up" data-aos-delay="200" onclick="openLightbox(this)">
+      <div class="gallery-thumb gc-7">
+        <span style="font-size:60px;opacity:0.2;position:absolute;">🏘️</span>
+        <div class="gallery-hover"><div class="gallery-hover-icon">+</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="lokasi">
+  <div class="lokasi-grid">
+    <div class="lokasi-info" data-aos="fade-right">
+      <div class="section-label">Temukan Kami</div>
+      <h2 class="section-title">Lokasi <em>Desa</em></h2>
+      <p>Desa Sukamaju terletak di Kecamatan Cikaret, Kabupaten Sukabumi, Jawa Barat. Dapat dijangkau dari berbagai arah dengan akses jalan yang baik.</p>
+      <div class="lokasi-detail">
+        <div class="lokasi-item">
+          <div class="lokasi-icon">📍</div>
+          <div class="lokasi-item-text">
+            <div class="lokasi-item-label">Alamat</div>
+            Jl. Sukamaju No. 1, Kec. Cikaret, Kab. Sukabumi, Jawa Barat 43181
+          </div>
+        </div>
+        <div class="lokasi-item">
+          <div class="lokasi-icon">📞</div>
+          <div class="lokasi-item-text">
+            <div class="lokasi-item-label">Telepon</div>
+            (0266) 123-4567
+          </div>
+        </div>
+        <div class="lokasi-item">
+          <div class="lokasi-icon">📧</div>
+          <div class="lokasi-item-text">
+            <div class="lokasi-item-label">Email</div>
+            info@desasukamaju.desa.id
+          </div>
+        </div>
+        <div class="lokasi-item">
+          <div class="lokasi-icon">🕐</div>
+          <div class="lokasi-item-text">
+            <div class="lokasi-item-label">Jam Pelayanan</div>
+            Senin – Jumat, 08.00 – 16.00 WIB
+          </div>
+        </div>
+      </div>
+      <a href="https://maps.google.com" target="_blank" class="btn-maps">
+        📍 Buka di Google Maps
+      </a>
+    </div>
+    <div data-aos="fade-left">
+      <div class="map-container">
+        <div class="map-placeholder">
+          <div class="map-pin">📍</div>
+          <div class="map-text" style="font-family:'Playfair Display',serif;font-size:18px;color:rgba(31,59,44,0.6);">Desa Sukamaju</div>
+          <div class="map-text">Kec. Cikaret, Kab. Sukabumi</div>
+          <div class="map-text" style="font-size:12px;margin-top:8px;">Klik tombol di bawah untuk membuka peta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo" style="margin-bottom:4px;">
+        <div class="nav-logo-icon">DS</div>
+        <div class="nav-logo-text">
+          Desa Sukamaju
+          <span>Kec. Cikaret · Jawa Barat</span>
+        </div>
+      </div>
+      <p>Website resmi Desa Sukamaju — menyajikan informasi, berita, dan potensi desa untuk warga dan masyarakat luas.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-icon">f</a>
+        <a href="#" class="social-icon">ig</a>
+        <a href="#" class="social-icon">yt</a>
+        <a href="#" class="social-icon">wa</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigasi</h4>
+      <ul class="footer-links">
+        <li><a href="#hero">Beranda</a></li>
+        <li><a href="#about">Tentang Desa</a></li>
+        <li><a href="#potensi">Potensi Desa</a></li>
+        <li><a href="#berita">Berita & Artikel</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#lokasi">Lokasi</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Layanan</h4>
+      <ul class="footer-links">
+        <li><a href="#">Surat Keterangan</a></li>
+        <li><a href="#">Data Kependudukan</a></li>
+        <li><a href="#">Pengaduan Warga</a></li>
+        <li><a href="#">Bantuan Sosial</a></li>
+        <li><a href="#">UMKM Desa</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontak</h4>
+      <ul class="footer-links">
+        <li><a href="#">📍 Jl. Sukamaju No. 1</a></li>
+        <li><a href="#">📞 (0266) 123-4567</a></li>
+        <li><a href="#">📧 info@desasukamaju.id</a></li>
+        <li><a href="#">🕐 Sen–Jum 08.00–16.00</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Desa Sukamaju. Seluruh hak cipta dilindungi.</p>
+    <p style="color:rgba(255,255,255,0.15);">Dibuat dengan ❤️ untuk warga Desa Sukamaju</p>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-close">✕</div>
+  <div class="lightbox-content" style="background:#1a3525;width:600px;height:400px;display:flex;align-items:center;justify-content:center;">
+    <span style="font-size:80px;opacity:0.4;" id="lightbox-icon">🌾</span>
+  </div>
+</div>
+
+<!-- BACK TO TOP -->
+<a href="#hero" id="back-to-top" title="Kembali ke atas">↑</a>
+
+<!-- FLOATING SOCIALS -->
+<div class="floating-socials">
+  <a href="#" class="float-social" title="Facebook">f</a>
+  <a href="#" class="float-social" title="Instagram">ig</a>
+  <a href="#" class="float-social" title="YouTube">yt</a>
+  <a href="#" class="float-social" title="WhatsApp">wa</a>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  // ===================== PRELOADER =====================
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('preloader').classList.add('hide');
+    }, 2200);
+  });
+
+  // ===================== AOS INIT =====================
+  AOS.init({
+    duration: 800,
+    easing: 'ease-out-cubic',
+    once: true,
+    offset: 60,
+  });
+
+  // ===================== NAVBAR =====================
+  const navbar = document.getElementById('navbar');
+  const backToTop = document.getElementById('back-to-top');
+  const scrollProgress = document.getElementById('scroll-progress');
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+    // Navbar
+    if (scrollY > 60) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+
+    // Back to top
+    if (scrollY > 400) {
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
+    }
+
+    // Scroll progress
+    const pct = (scrollY / maxScroll) * 100;
+    scrollProgress.style.width = pct + '%';
+
+    // Active nav
+    const sections = ['hero', 'about', 'potensi', 'berita', 'galeri', 'lokasi'];
+    let current = '';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top < 120) current = id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+
+  // ===================== HAMBURGER =====================
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  document.querySelectorAll('.nav-link-mobile').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // ===================== DYNAMIC GREETING =====================
+  const greetingEl = document.getElementById('hero-greeting');
+  const hour = new Date().getHours();
+  let greeting = 'Selamat Datang';
+  if (hour >= 5 && hour < 12) greeting = '🌅 Selamat Pagi';
+  else if (hour >= 12 && hour < 15) greeting = '☀️ Selamat Siang';
+  else if (hour >= 15 && hour < 18) greeting = '🌤️ Selamat Sore';
+  else greeting = '🌙 Selamat Malam';
+  greetingEl.textContent = greeting;
+
+  // ===================== COUNTER ANIMATION =====================
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = Math.floor(current).toLocaleString('id-ID') + suffix;
+    }, 16);
+  }
+
+  const statsSection = document.getElementById('stats');
+  let countersStarted = false;
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !countersStarted) {
+      countersStarted = true;
+      document.querySelectorAll('.stat-number[data-target]').forEach(el => {
+        setTimeout(() => animateCounter(el), parseInt(el.closest('[data-aos-delay]')?.dataset.aosDelay || 0));
+      });
+    }
+  }, { threshold: 0.3 });
+  if (statsSection) observer.observe(statsSection);
+
+  // ===================== LIGHTBOX =====================
+  function openLightbox(el) {
+    const icon = el.querySelector('span') ? el.querySelector('span').textContent : '🌾';
+    document.getElementById('lightbox-icon').textContent = icon;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // ===================== HERO PARTICLES =====================
+  const hero = document.getElementById('hero');
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.className = 'hero-particle';
+    p.style.cssText = `
+      left: ${Math.random() * 100}%;
+      top: ${Math.random() * 60}%;
+      animation-delay: ${Math.random() * 4}s;
+      animation-duration: ${2 + Math.random() * 3}s;
+      width: ${Math.random() > 0.7 ? 3 : 2}px;
+      height: ${Math.random() > 0.7 ? 3 : 2}px;
+    `;
+    hero.appendChild(p);
+  }
+
+  // ===================== SMOOTH SCROLL =====================
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ===================== SEARCH =====================
+  const searchInput = document.querySelector('.search-input');
+  if (searchInput) {
+    searchInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        const q = e.target.value.trim();
+        if (q) {
+          // Would navigate to search results
+          alert('Mencari: ' + q);
+        }
+      }
+    });
+  }
+
+  // Running text pause on hover
+  const rt = document.querySelector('.running-text-inner');
+  if (rt) {
+    rt.addEventListener('mouseenter', () => rt.style.animationPlayState = 'paused');
+    rt.addEventListener('mouseleave', () => rt.style.animationPlayState = 'running');
+  }
+</script>
+</body>
+</html>
