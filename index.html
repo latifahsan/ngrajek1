@@ -1341,87 +1341,120 @@
   /* Running text scrolled offset */
   body.scrolled .running-text { top: 60px; }
 
-/* ================= MOBILE FIX ================= */
+/* ================= FINAL MOBILE FIX ================= */
 
-@media (max-width: 768px){
+html, body{
+  overflow-x: hidden !important;
+  width: 100%;
+}
 
-  body{
-    overflow-x:hidden;
-  }
+body{
+  position: relative;
+}
 
-  #navbar{
-    padding:14px 16px;
-  }
+#hero,
+.hero-content,
+.hero-bg,
+.hero-overlay,
+.running-text,
+#navbar{
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
-  .nav-logo-text{
-    font-size:14px;
-  }
+@media (max-width:768px){
 
-  .nav-logo-text span{
-    font-size:9px;
-    letter-spacing:1px;
-  }
-
-  .running-text{
-    top:58px;
-  }
-
-  .running-text-item{
-    font-size:10px;
-  }
-
-  .hero-content{
-    padding:120px 20px 80px;
-  }
-
-  .hero-title{
-    font-size:56px;
-    line-height:1.05;
-  }
-
-  .hero-tagline{
-    letter-spacing:3px;
-    font-size:10px;
-    line-height:1.8;
-  }
-
-  .hero-desc{
-    font-size:14px;
-    line-height:1.9;
+  *{
     max-width:100%;
   }
 
+  #navbar{
+    padding: 14px 16px !important;
+  }
+
+  .nav-logo{
+    width: calc(100% - 60px);
+    overflow: hidden;
+  }
+
+  .nav-logo-text{
+    font-size: 14px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-logo-text span{
+    font-size: 9px !important;
+    letter-spacing: 1px;
+  }
+
+  .running-text{
+    top: 58px !important;
+  }
+
+  .running-text-inner{
+    gap: 30px;
+    padding-right: 30px;
+  }
+
+  .running-text-item{
+    font-size: 10px;
+  }
+
+  #hero{
+    min-height: 100svh;
+    padding-top: 120px;
+  }
+
+  .hero-content{
+    padding: 0 20px;
+    width: 100%;
+  }
+
+  .hero-title{
+    font-size: 54px !important;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    word-break: break-word;
+  }
+
+  .hero-tagline{
+    font-size: 10px !important;
+    letter-spacing: 3px !important;
+    line-height: 1.8;
+    padding: 0 10px;
+  }
+
+  .hero-desc{
+    font-size: 14px !important;
+    line-height: 1.9;
+    max-width: 100%;
+    padding: 0 4px;
+  }
+
   .hero-cta{
-    flex-direction:column;
-    width:100%;
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
   }
 
   .btn-primary,
   .btn-outline{
-    width:100%;
-    text-align:center;
+    width: 100%;
+    text-align: center;
   }
 
   .weather-card{
-    max-width:100%;
-    margin:-30px 16px 0;
-    padding:16px;
+    width: calc(100% - 32px);
+    max-width: none;
+    margin: -30px auto 0;
+    padding: 16px;
   }
 
-  .section-title{
-    font-size:34px;
-  }
-
-  .featured-news{
-    aspect-ratio:4/5;
-  }
-
-  .featured-news-title{
-    font-size:24px;
-  }
-
-  .gallery-grid{
-    gap:8px;
+  .scroll-indicator{
+    bottom: 20px;
   }
 
 }
