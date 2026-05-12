@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dusun Ngrajek 1 — Tanah Subur, Jiwa Merdeka</title>
+<title>Dusun Ngrajek 1 — Dusun di Magelang </title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
@@ -192,17 +192,39 @@
     overflow: hidden;
     border-bottom: 1px solid rgba(201,168,76,0.2);
     transition: top 0.4s ease;
+}
+
+.running-text-inner{
+  flex-shrink:0;
+}
+
+  .running-text-inner{
+  display:flex;
+  align-items:center;
+  gap:40px;
+  white-space:nowrap;
+  width:max-content;
+  animation:marquee 16s linear infinite;
+  will-change:transform;
+}
+
+@keyframes marquee{
+  from{
+    transform:translateX(0);
   }
-  .running-text-inner {
-    display: flex; align-items: center; gap: 60px;
-    animation: scroll-text 30s linear infinite;
-    white-space: nowrap;
-    width: max-content;
+  to{
+    transform:translateX(calc(-50% - 20px));
   }
-  @keyframes scroll-text {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+}
+
+@keyframes mobileMarquee{
+  from{
+    transform:translateX(0);
   }
+  to{
+    transform:translateX(calc(-50% - 1px));
+  }
+}
   .running-text-item {
     display: flex; align-items: center; gap: 10px;
     font-size: 12px; color: rgba(255,255,255,0.75);
@@ -1395,10 +1417,10 @@ body{
   }
 
   .running-text-inner{
-  gap: 16px;
-  padding-right: 0;
-  animation: scroll-text 10s linear infinite !important;
-  }
+  gap:20px;
+  min-width:max-content;
+  animation:mobileMarquee 20s linear infinite !important;
+}
 
   .running-text-item{
     font-size: 10px;
@@ -1466,8 +1488,8 @@ body{
 
 <!-- PRELOADER -->
 <div id="preloader">
-  <div class="preloader-logo">DS</div>
-  <div class="preloader-text">Memuat Desa...</div>
+  <div class="preloader-logo">NGK</div>
+  <div class="preloader-text">Memuat Website...</div>
   <div class="preloader-bar">
     <div class="preloader-fill"></div>
   </div>
@@ -1479,10 +1501,10 @@ body{
 <!-- NAVBAR -->
 <nav id="navbar">
   <a href="#hero" class="nav-logo">
-    <div class="nav-logo-icon">DS</div>
+    <div class="nav-logo-icon">NGK</div>
     <div class="nav-logo-text">
       Dusun Ngrajek 1
-      <span>Kec. Cikaret · Jawa Barat</span>
+      <span>Kec. Mungkid · Magelang</span>
     </div>
   </a>
   <ul class="nav-links">
@@ -1511,17 +1533,17 @@ body{
 <!-- RUNNING TEXT -->
 <div class="running-text">
   <div class="running-text-inner" id="running-text-inner">
-    <div class="running-text-item"><span class="dot"></span>🔊 Selamat datang di website resmi Desa Sukamaju</div>
+    <div class="running-text-item"><span class="dot"></span>🔊 Selamat datang di website resmi Dusun Ngrajek 1</div>
     <div class="running-text-item"><span class="dot"></span>🌾 Panen raya akan dilaksanakan minggu depan — mari bersama merayakannya</div>
     <div class="running-text-item"><span class="dot"></span>🌿 Mari menjaga kebersihan dan keindahan desa kita bersama</div>
     <div class="running-text-item"><span class="dot"></span>📋 Musyawarah desa akan diadakan pada hari Jumat, pukul 19.00 WIB</div>
-    <div class="running-text-item"><span class="dot"></span>🎉 Festival Panen Desa Sukamaju 2025 — segera hadir!</div>
+    <div class="running-text-item"><span class="dot"></span>🎉 Festival Panen Dusun Ngrajek 1 2026 — segera hadir!</div>
     <!-- duplicate for seamless scroll -->
-    <div class="running-text-item"><span class="dot"></span>🔊 Selamat datang di website resmi Desa Sukamaju</div>
+    <div class="running-text-item"><span class="dot"></span>🔊 Selamat datang di website resmi Dusun Ngrajek 1</div>
     <div class="running-text-item"><span class="dot"></span>🌾 Panen raya akan dilaksanakan minggu depan — mari bersama merayakannya</div>
     <div class="running-text-item"><span class="dot"></span>🌿 Mari menjaga kebersihan dan keindahan desa kita bersama</div>
     <div class="running-text-item"><span class="dot"></span>📋 Musyawarah desa akan diadakan pada hari Jumat, pukul 19.00 WIB</div>
-    <div class="running-text-item"><span class="dot"></span>🎉 Festival Panen Desa Sukamaju 2025 — segera hadir!</div>
+    <div class="running-text-item"><span class="dot"></span>🎉 Festival Panen Dusun Ngrajek 1 2026 — segera hadir!</div>
   </div>
 </div>
 
@@ -1544,11 +1566,12 @@ body{
 
   <div class="hero-content">
     <div class="hero-greeting" id="hero-greeting">Selamat Datang</div>
-    <h1 class="hero-title">Desa <em>Sukamaju</em></h1>
-    <p class="hero-tagline">Tanah Subur · Jiwa Merdeka · Bersama Maju</p>
-    <p class="hero-desc">Sebuah desa dengan kekayaan alam yang melimpah, sejarah yang membanggakan, dan masyarakat yang bersatu dalam kehidupan harmonis di tanah Jawa Barat.</p>
+    <h1 class="hero-title">Dusun<br>
+<em>Ngrajek 1</em></h1>
+    <p class="hero-tagline">Ngrajek • Mungkid • Magelang</p>
+    <p class="hero-desc">Sebuah dusun dengan kekayaan alam yang melimpah, sejarah yang membanggakan, dan masyarakat yang bersatu dalam kehidupan harmonis di tanah Jawa Tengah.</p>
     <div class="hero-cta">
-      <a href="#about" class="btn-primary">Jelajahi Desa</a>
+      <a href="#about" class="btn-primary">Jelajahi Dusun</a>
       <a href="#berita" class="btn-outline">Baca Berita</a>
     </div>
   </div>
@@ -1557,7 +1580,7 @@ body{
   <div class="hero-glass-card">
     <div class="glass-info-item">
       <div class="glass-info-label">Penduduk</div>
-      <div class="glass-info-value">4.782</div>
+      <div class="glass-info-value">±600</div>
       <div class="glass-info-sub">jiwa</div>
     </div>
     <div class="glass-divider"></div>
@@ -1568,9 +1591,9 @@ body{
     </div>
     <div class="glass-divider"></div>
     <div class="glass-info-item">
-      <div class="glass-info-label">Berdiri</div>
-      <div class="glass-info-value">1923</div>
-      <div class="glass-info-sub">102 tahun lalu</div>
+      <div class="glass-info-label">Karakter</div>
+      <div class="glass-info-value">Guyub</div>
+      <div class="glass-info-sub">Warga bersatu</div>
     </div>
   </div>
 
@@ -1588,7 +1611,7 @@ body{
     <div class="weather-info">
       <div class="weather-temp">28°C</div>
       <div class="weather-desc">Cerah Berawan</div>
-      <div class="weather-loc">Desa Sukamaju · Hari ini</div>
+      <div class="weather-loc">Dusun Ngrajek 1 · Hari ini</div>
     </div>
     <div style="text-align:right;">
       <div style="font-size:11px;color:var(--text-muted);">Kelembaban</div>
@@ -1603,11 +1626,11 @@ body{
   <div class="about-grid">
     <div class="about-text" data-aos="fade-right" data-aos-duration="900">
       <div class="section-label">Tentang Kami</div>
-      <h2 class="section-title">Desa dengan <em>Jiwa</em><br>yang Kaya</h2>
-      <p>Desa Sukamaju berdiri sejak tahun 1923 di lembah subur Jawa Barat. Dikelilingi hamparan sawah hijau dan perbukitan yang asri, desa ini menyimpan warisan budaya dan kearifan lokal yang tak ternilai.</p>
-      <p>Masyarakat kami hidup dalam semangat gotong royong, menjaga alam dengan penuh rasa syukur. Pertanian menjadi tulang punggung kehidupan, diwariskan dari generasi ke generasi dengan penuh kebanggaan.</p>
-      <p>Dengan lebih dari satu abad berdiri, Desa Sukamaju terus berkembang — menjaga akar tradisi sambil merangkul kemajuan untuk masa depan yang lebih cerah.</p>
-    </div>
+      <h2 class="section-title">Dusun dengan <em>Jiwa</em><br>yang Kaya</h2>
+      <p>Dusun Ngrajek 1 merupakan kawasan pedesaan yang dikelilingi hamparan sawah hijau, udara yang sejuk, dan suasana alam yang masih terjaga. Kehidupan masyarakat berjalan harmonis dalam lingkungan yang tenang dan penuh kebersamaan.</p>
+      <p>Warga Dusun Ngrajek 1 hidup dengan semangat gotong royong yang kuat. Aktivitas pertanian, kebersamaan antarwarga, serta budaya saling membantu menjadi bagian dari kehidupan sehari-hari yang terus dijaga hingga sekarang.</p>
+      <p>Di tengah perkembangan zaman, Dusun Ngrajek 1 tetap mempertahankan nuansa pedesaan yang asri sambil terus tumbuh menjadi lingkungan yang nyaman, hangat, dan penuh harapan bagi generasi mendatang.</p>
+   </div>
     <div class="about-image-wrap" data-aos="fade-left" data-aos-duration="900">
       <div class="about-image-main">
         <svg width="200" height="200" viewBox="0 0 200 200" fill="none" opacity="0.5">
@@ -1640,24 +1663,24 @@ body{
 <section id="highlights">
   <div class="highlights-grid max-w">
     <div class="highlight-card" data-aos="fade-up" data-aos-delay="0">
-      <div class="highlight-icon">🌾</div>
-      <div class="highlight-title">Desa Pertanian</div>
-      <div class="highlight-desc">Hamparan sawah hijau subur menjadi identitas utama desa. Kami penghasil beras berkualitas unggulan Jawa Barat.</div>
+      <div class="highlight-icon">🐟</div>
+      <div class="highlight-title">Sentra Perikanan</div>
+      <div class="highlight-desc">Ngrajek 1 dikenal sebagai pusat budidaya ikan air tawar unggulan di wilayah Mungkid, mendukung ketahanan pangan lokal.</div>
     </div>
     <div class="highlight-card" data-aos="fade-up" data-aos-delay="100">
-      <div class="highlight-icon">🌿</div>
-      <div class="highlight-title">Alam Asri</div>
-      <div class="highlight-desc">Udara segar, perbukitan hijau, dan sungai jernih menjadi kekayaan alam yang selalu kami jaga kelestariannya.</div>
+      <div class="highlight-icon">🍽️</div>
+      <div class="highlight-title">Wisata Kuliner</div>
+      <div class="highlight-desc">Menawarkan pesona kuliner khas berbahan ikan di sepanjang jalur strategis menuju kawasan Candi Borobudur.</div>
     </div>
     <div class="highlight-card" data-aos="fade-up" data-aos-delay="200">
-      <div class="highlight-icon">📜</div>
-      <div class="highlight-title">Sejarah Lokal</div>
-      <div class="highlight-desc">Berdiri sejak 1923, desa kami menyimpan warisan sejarah dan kearifan lokal yang kaya dan membanggakan.</div>
+      <div class="highlight-icon">💧</div>
+      <div class="highlight-title">Potensi Air</div>
+      <div class="highlight-desc">Memiliki sumber daya air melimpah yang mengaliri kolam-kolam dan lahan pertanian sepanjang tahun.</div>
     </div>
     <div class="highlight-card" data-aos="fade-up" data-aos-delay="300">
-      <div class="highlight-icon">💼</div>
-      <div class="highlight-title">UMKM Berkembang</div>
-      <div class="highlight-desc">Lebih dari 47 unit UMKM aktif menggerakkan ekonomi desa — dari produk pertanian hingga kerajinan tangan lokal.</div>
+      <div class="highlight-icon">📌</div>
+      <div class="highlight-title">Lokasi Strategis</div>
+      <div class="highlight-desc">Berada di gerbang utama menuju kawasan wisata Borobudur, menjadikan dusun ini memiliki nilai ekonomi yang tinggi.</div>
     </div>
   </div>
 </section>
@@ -1665,8 +1688,8 @@ body{
 <!-- STATS -->
 <section id="stats">
   <div class="stats-header" data-aos="fade-up">
-    <div class="section-label">Data Desa</div>
-    <h2 class="section-title">Desa dalam <em>Angka</em></h2>
+    <div class="section-label">Data Dusun</div>
+    <h2 class="section-title">Dusun dalam <em>Angka</em></h2>
   </div>
   <div class="stats-grid">
     <div class="stat-card" data-aos="fade-up" data-aos-delay="0">
@@ -1680,9 +1703,9 @@ body{
       <div class="stat-label">Luas Wilayah</div>
     </div>
     <div class="stat-card" data-aos="fade-up" data-aos-delay="160">
-      <div class="stat-icon">🏘️</div>
+      <div class="stat-icon">🏠</div>
       <div class="stat-number" data-target="5">0</div>
-      <div class="stat-label">Jumlah Dusun</div>
+      <div class="stat-label">Jumlah RT</div>
     </div>
     <div class="stat-card" data-aos="fade-up" data-aos-delay="240">
       <div class="stat-icon">🌾</div>
@@ -1697,10 +1720,10 @@ body{
   </div>
 </section>
 
-<!-- POTENSI DESA -->
+<!-- POTENSI Dusun -->
 <section id="potensi">
   <div class="potensi-header" data-aos="fade-up">
-    <div class="section-label" style="justify-content:center;"><span></span>Potensi Desa<span></span></div>
+    <div class="section-label" style="justify-content:center;"><span></span>Potensi Dusun<span></span></div>
     <h2 class="section-title">Kekayaan yang <em>Kami Miliki</em></h2>
   </div>
   <div class="potensi-grid max-w">
@@ -1730,7 +1753,7 @@ body{
       <div class="potensi-overlay"></div>
       <div class="potensi-content">
         <div class="potensi-badge">Ekowisata</div>
-        <h3 class="potensi-title">Keindahan Alam Desa</h3>
+        <h3 class="potensi-title">Keindahan Alam Dusun</h3>
         <p class="potensi-desc">Perbukitan, sungai, dan udara sejuk menjadi daya tarik wisata alam yang terus berkembang.</p>
       </div>
       <div style="position:absolute;top:24px;right:24px;font-size:48px;opacity:0.15;">⛰️</div>
@@ -1759,7 +1782,7 @@ body{
       <div class="potensi-overlay"></div>
       <div class="potensi-content">
         <div class="potensi-badge">Kuliner</div>
-        <h3 class="potensi-title">Kuliner Khas Desa</h3>
+        <h3 class="potensi-title">Kuliner Khas Dusun</h3>
         <p class="potensi-desc">Cita rasa otentik kuliner lokal yang diwariskan turun-temurun.</p>
       </div>
       <div style="position:absolute;top:24px;right:24px;font-size:48px;opacity:0.15;">🍚</div>
@@ -1785,7 +1808,7 @@ body{
 <!-- SEARCH -->
 <section id="search-section">
   <div class="search-wrap" data-aos="fade-up">
-    <input class="search-input" type="text" placeholder="Cari berita atau artikel desa...">
+    <input class="search-input" type="text" placeholder="Cari berita atau artikel dusun...">
     <button class="search-btn">🔍</button>
   </div>
 </section>
@@ -1809,8 +1832,8 @@ body{
     <div class="featured-news-content">
       <span class="news-category">Pertanian</span>
       <p class="news-date">📅 12 Mei 2025</p>
-      <h2 class="featured-news-title">Panen Raya 2025: Hasil Rekor Sepanjang Sejarah Desa Sukamaju</h2>
-      <p class="featured-news-desc">Tahun ini, Desa Sukamaju mencatat rekor panen padi terbesar sepanjang sejarah dengan total hasil 1.200 ton — melampaui target yang ditetapkan Dinas Pertanian Kabupaten.</p>
+      <h2 class="featured-news-title">Panen Raya 2025: Hasil Rekor Sepanjang Sejarah Dusun Ngrajek 1</h2>
+      <p class="featured-news-desc">Tahun ini, Dusun Ngrajek 1 mencatat rekor panen padi terbesar sepanjang sejarah dengan total hasil 1.200 ton — melampaui target yang ditetapkan Dinas Pertanian Kabupaten.</p>
     </div>
   </div>
 
@@ -1856,7 +1879,7 @@ body{
       <div class="news-card-thumb"><div class="news-card-thumb-inner thumb-4"><span style="font-size:60px;opacity:0.3;">🎉</span></div></div>
       <div class="news-card-body">
         <span class="news-card-cat">Festival</span>
-        <h3 class="news-card-title">Festival Kuliner Desa Sukamaju Kembali Hadir</h3>
+        <h3 class="news-card-title">Festival Kuliner Dusun Ngrajek 1 Kembali Hadir</h3>
         <p class="news-card-excerpt">Festival kuliner tahunan desa akan hadir kembali dengan menampilkan lebih dari 30 stand makanan khas lokal...</p>
         <div class="news-card-meta">
           <span>📅 28 Apr 2025</span>
@@ -1905,16 +1928,16 @@ body{
   <div class="landscape-overlay"></div>
   <div class="landscape-content" data-aos="fade-up">
     <blockquote class="landscape-quote">
-      Keindahan alam dan kebersamaan warga menjadi kekuatan desa kami yang tak tergoyahkan
+      Keindahan alam dan kebersamaan warga menjadi kekuatan dusun kami yang tak tergoyahkan
     </blockquote>
-    <p class="landscape-author">— Warga Desa Sukamaju</p>
+    <p class="landscape-author">— Warga Dusun Ngrajek 1</p>
   </div>
 </section>
 
 <!-- GALLERY -->
 <section id="galeri">
   <div class="gallery-header" data-aos="fade-up">
-    <div class="section-label" style="justify-content:center;">Galeri Desa</div>
+    <div class="section-label" style="justify-content:center;">Galeri Dusun</div>
     <h2 class="section-title">Keindahan dalam <em>Bingkai</em></h2>
   </div>
   <div class="gallery-grid max-w">
@@ -1968,28 +1991,28 @@ body{
   <div class="lokasi-grid">
     <div class="lokasi-info" data-aos="fade-right">
       <div class="section-label">Temukan Kami</div>
-      <h2 class="section-title">Lokasi <em>Desa</em></h2>
-      <p>Desa Sukamaju terletak di Kecamatan Cikaret, Kabupaten Sukabumi, Jawa Barat. Dapat dijangkau dari berbagai arah dengan akses jalan yang baik.</p>
+      <h2 class="section-title">Lokasi <em>Dusun</em></h2>
+      <p>Dusun Ngrajek 1 terletak di Desa Ngrajek, Kecamatan Mungkid, Kabupaten Magelang, Jawa Tengah. Dapat dijangkau dari berbagai arah dengan akses jalan yang baik.</p>
       <div class="lokasi-detail">
         <div class="lokasi-item">
           <div class="lokasi-icon">📍</div>
           <div class="lokasi-item-text">
             <div class="lokasi-item-label">Alamat</div>
-            Jl. Sukamaju No. 1, Kec. Cikaret, Kab. Sukabumi, Jawa Barat 43181
+            Jl. Mayor Kusen, Kec. Mungkid, Kab. Magelang, Jawa Tengah 56511
           </div>
         </div>
         <div class="lokasi-item">
           <div class="lokasi-icon">📞</div>
           <div class="lokasi-item-text">
             <div class="lokasi-item-label">Telepon</div>
-            (0266) 123-4567
+            (0293) -
           </div>
         </div>
         <div class="lokasi-item">
           <div class="lokasi-icon">📧</div>
           <div class="lokasi-item-text">
             <div class="lokasi-item-label">Email</div>
-            info@desasukamaju.desa.id
+            -@gmail.com
           </div>
         </div>
         <div class="lokasi-item">
@@ -2000,7 +2023,7 @@ body{
           </div>
         </div>
       </div>
-      <a href="https://maps.google.com" target="_blank" class="btn-maps">
+      <a href="https://maps.app.goo.gl/nCLXT5uycZDMrWme9" target="_blank" class="btn-maps">
         📍 Buka di Google Maps
       </a>
     </div>
@@ -2008,8 +2031,8 @@ body{
       <div class="map-container">
         <div class="map-placeholder">
           <div class="map-pin">📍</div>
-          <div class="map-text" style="font-family:'Playfair Display',serif;font-size:18px;color:rgba(31,59,44,0.6);">Desa Sukamaju</div>
-          <div class="map-text">Kec. Cikaret, Kab. Sukabumi</div>
+          <div class="map-text" style="font-family:'Playfair Display',serif;font-size:18px;color:rgba(31,59,44,0.6);">Dusun Ngrajek 1</div>
+          <div class="map-text">Kec. Mungkid, Kab. Magelang</div>
           <div class="map-text" style="font-size:12px;margin-top:8px;">Klik tombol di bawah untuk membuka peta</div>
         </div>
       </div>
@@ -2022,13 +2045,13 @@ body{
   <div class="footer-grid">
     <div class="footer-brand">
       <div class="nav-logo" style="margin-bottom:4px;">
-        <div class="nav-logo-icon">DS</div>
+        <div class="nav-logo-icon">NGK</div>
         <div class="nav-logo-text">
-          Desa Sukamaju
-          <span>Kec. Cikaret · Jawa Barat</span>
+          Dusun Ngrajek 1
+          <span>Kec. Mungkid · Jawa Tengah</span>
         </div>
       </div>
-      <p>Website resmi Desa Sukamaju — menyajikan informasi, berita, dan potensi desa untuk warga dan masyarakat luas.</p>
+      <p>Website resmi Dusun Ngrajek 1 — menyajikan informasi, berita, dan potensi dusun untuk warga dan masyarakat luas.</p>
       <div class="footer-socials">
         <a href="#" class="social-icon">f</a>
         <a href="#" class="social-icon">ig</a>
@@ -2040,36 +2063,26 @@ body{
       <h4>Navigasi</h4>
       <ul class="footer-links">
         <li><a href="#hero">Beranda</a></li>
-        <li><a href="#about">Tentang Desa</a></li>
-        <li><a href="#potensi">Potensi Desa</a></li>
+        <li><a href="#about">Tentang Dusun</a></li>
+        <li><a href="#potensi">Potensi Dusun</a></li>
         <li><a href="#berita">Berita & Artikel</a></li>
         <li><a href="#galeri">Galeri</a></li>
         <li><a href="#lokasi">Lokasi</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Layanan</h4>
-      <ul class="footer-links">
-        <li><a href="#">Surat Keterangan</a></li>
-        <li><a href="#">Data Kependudukan</a></li>
-        <li><a href="#">Pengaduan Warga</a></li>
-        <li><a href="#">Bantuan Sosial</a></li>
-        <li><a href="#">UMKM Desa</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
       <h4>Kontak</h4>
       <ul class="footer-links">
-        <li><a href="#">📍 Jl. Sukamaju No. 1</a></li>
-        <li><a href="#">📞 (0266) 123-4567</a></li>
-        <li><a href="#">📧 info@desasukamaju.id</a></li>
+        <li><a href="#">📍 Jl. Mayor Kusen</a></li>
+        <li><a href="#">📞 (0293) -</a></li>
+        <li><a href="#">📧 -@gmail.com</a></li>
         <li><a href="#">🕐 Sen–Jum 08.00–16.00</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 Desa Sukamaju. Seluruh hak cipta dilindungi.</p>
-    <p style="color:rgba(255,255,255,0.15);">Dibuat dengan ❤️ untuk warga Desa Sukamaju</p>
+    <p>© 2026 Dusn Ngrajek. Seluruh hak cipta dilindungi.</p>
+    <p style="color:rgba(255,255,255,0.15);">Dibuat dengan ❤️ untuk warga Dusun Ngrajek</p>
   </div>
 </footer>
 
